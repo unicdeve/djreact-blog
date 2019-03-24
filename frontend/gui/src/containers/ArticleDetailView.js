@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import { Card } from 'antd';
 
+import CustomForm from '../components/Form';
+
 export default class ArticleDetail extends Component {
 
   state = {
@@ -21,9 +23,13 @@ export default class ArticleDetail extends Component {
 
   render() {
     return (
-      <Card title={this.state.article.name}>
-        <p>{this.state.article.content}</p>
-      </Card>
+      <div>
+        <Card title={this.state.article.name}>
+          <p>{this.state.article.content}</p>
+        </Card>
+        <br />
+        <CustomForm />
+      </div>
     )
   }
 }
