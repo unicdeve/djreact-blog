@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import * as actions from '../store/actions/auth'
 
@@ -61,4 +61,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CustomLayout);
+export default withRouter(connect(null, mapDispatchToProps)(CustomLayout));

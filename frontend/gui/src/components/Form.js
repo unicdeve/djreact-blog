@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
 
+import { connect } from 'react-redux'
+
 import axios from 'axios';
 
-export default class CustomForm extends Component {
+class CustomForm extends Component {
 
   handleFormSubmit = (e, requestType, articleID) => {
     e.preventDefault();
@@ -33,10 +35,12 @@ export default class CustomForm extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={(e) => this.handleFormSubmit(
-          e,
-          this.props.requestType,
-          this.props.articleID
+        <Form 
+        onSubmit={(e) => 
+          this.handleFormSubmit(
+            e,
+            this.props.requestType,
+            this.props.articleID
         )}>
           <FormItem label="Title">
             <Input name="name" placeholder="Put a title here" />
@@ -54,3 +58,11 @@ export default class CustomForm extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    token: state.token
+  };
+};
+
+export default connect(mapStateToProps)(CustomForm);
