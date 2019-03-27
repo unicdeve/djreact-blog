@@ -11,9 +11,10 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        this.props.onAuth(values.userName, values.password);
       }
     });
+    this.props.history.push('/');
   }
 
   render() {
@@ -58,8 +59,7 @@ class NormalLoginForm extends React.Component {
                 Login
               </Button>
                 Or
-                <NavLink style={{marginRight: '10px'}} to='/signup/'>
-                  signup
+                <NavLink style={{marginRight: '10px'}} to='/signup/'> signup
                 </NavLink>
             </Form.Item>
           </Form>
@@ -69,7 +69,7 @@ class NormalLoginForm extends React.Component {
   }
 }
 
-const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
 const mapStateToProps = (state) => {
   return {
