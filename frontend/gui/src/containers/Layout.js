@@ -20,7 +20,7 @@ class CustomLayout extends React.Component {
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="1">
-              <Link to='/'>Post</Link>
+              <Link to='/'>Posts</Link>
             </Menu.Item>
   
             {
@@ -38,6 +38,7 @@ class CustomLayout extends React.Component {
   
           </Menu>
         </Header>
+
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item><Link to='/'>Home</Link></Breadcrumb.Item>
@@ -57,7 +58,7 @@ class CustomLayout extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onAuth: () => dispatch(actions.logout()) 
+      logout: () => dispatch(actions.logout()) 
   }
 }
 
